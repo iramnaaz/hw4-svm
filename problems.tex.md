@@ -3,8 +3,8 @@
 
 ## Scikit learn
 
-You will have to install scikit-learn, a machine learning library for Python, to answer questions in this homework: http://scikit-learn.org/stable/index.html
-You should be running the latest stable version of scikit-learn (0.18.1,as of this writing).
+You will use [scikit-learn](http://scikit-learn.org/stable/index.html), a machine learning library for Python, to answer questions in this homework. 
+You should be running the latest stable version of scikit-learn (0.20.3, as of this writing).
 If you want an example of how to train and call a classifier from scikit-learn, have a look at the [man page for the support vector machine](http://scikit-learn.org/stable/modules/svm.html#multi-class-classification).
 Most classifiers have similarly good documentation and are called in similar ways.
 For easy-to-use model selection, cross validation, etc, check out [the documentation on model selection](http://scikit-learn.org/stable/model_selection.html#model-selection)
