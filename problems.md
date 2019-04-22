@@ -23,7 +23,7 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 
 ## The MNIST dataset
-The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/)
+The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/). 
 We've provided a data loader for you in `mnist.py`. Here's an example of how you'd visualize a single handwritten digit from MNIST 
 
 ```
