@@ -34,7 +34,7 @@ images, labels = load_mnist(digits=[9], path='.')
 plt.imshow(images.mean(axis=0), cmap = 'gray')
 plt.show()
 ```
-# Coding (2 points)
+# Coding (1.5 points???)
 Describe coding part.
 
 # Free-response questions (8 points, total)
@@ -52,7 +52,8 @@ Describe coding part.
 
 5. (0.5 points) Look at 50 examples of one of the digits from the MNIST data. Show us some of the cases that you think might be challenging to be recognized by a classifier. Explain why you think the digits you illustrated in the previous question may be challenging.
 
-#### Running experiments (5.5 points)
+#### Designing the experiment (1.5 points)
+We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. We will combine each kernel with a variety of **C** values drawn from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. This results in 15 variants of the SVM. We will now design an experiment to determine the best variant.
 
 A *data split* specifies what portion of the data is used for training vs testing. 
 
@@ -62,29 +63,34 @@ A *condition* is a choice of experimental parameters (model parameters). In the 
 
 Call a *trail* one test/train of a model in a condition, given a draw from the data.
 
-6. (0.5 points) You are going to do repeatable experiments on MNIST to see how well an SVM can classify the handwritten digits. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Justify your method for selecting the training and testing sets in terms of these goals. (Here's some terms to help. ) Specifically:
-* Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?)
-* Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data.
+6. (0.5 points) We want to see how well different varients of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-We want to find the best kernel and slack cost, C, for handwritten digit recognition on MNIST using a support vector machine. Draw kernels from the set {Linear, Polynomial, Radial Basis Function}. Vary C over the set { 10^-2, 10^-1, 10^0, 10, 10^2}. Measure testing error on each combination of kernel and C (i.e. each condition). For each condition, repeat this measurement multiple times, each with a different draw of the data. Then answer the following questions.
+7. (0.25 points) What will your test train data split be? Why did you pick that?
 
-7. (0.5 points)   How many trials per condition will you run? Why that many?
+8. (0.25 points) Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data so that trials are independent.
 
-8. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of C (horizontal). Use average results across all kernels. Don't forget to indicate **n** on your plot, where n is the number trials per boxplot. Don't forget to label your dimensions. 
+9. (0.25 points) How many trials per condition will you run? Why that many?
 
-9. (0.5) What statistical test should you use to determine whether the difference between the best and second best values of C is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+10. (0.25 points) What evaluation measure will you use to compare the effectiveness of handwritten digit recognition?
 
-10. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+#### Reporting the results (4 points)
+11. (0.5 points) Create a table with 3 rows (1 kernel per row) and 5 columns (the 5 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
 
-11. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where n is the number trials per boxplot. Don't forget to label your dimensions. 
+12. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-12. (0.5) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant. Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+13. (0.5) What statistical test should you use to do pairwise comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-13. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+14. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
 
-14. (0.5) Now that you've selected the best value of C and the best kernel, create a table that shows the error for each of the 15 combinations of kernel and C that you tested. 
+15. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-15. (0.5) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
+15. (0.5) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-16. (0.5) Compare your results with [previous results found on MNIST](http://yann.lecun.com/exdb/mnist/). Do your results agree with theirs?
+16. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+
+17. (0.5) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
+
+#### Putting these results in context (0.5 point)
+
+18. (0.5) Compare your results with [previous results found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? Do your results agree with theirs? 
 
