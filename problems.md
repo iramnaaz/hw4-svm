@@ -10,12 +10,17 @@ Most classifiers have similarly good documentation and are called in similar way
 For easy-to-use model selection, cross validation, etc, check out [the documentation on model selection](http://scikit-learn.org/stable/model_selection.html#model-selection)
 
 ## SciPy and statistical tests
-Here are three helpful links to statistical tests:
-* [paired samples ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
+Here are some helpful statistical tests to determine whether two samples are drawn from the same underyling distribution.
 
-* [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+* If you have paired samples and normally distributed data, use this: [paired samples ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
 
-* [mann-whitney unsigned rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html?highlight=mannwhitney#scipy.stats.mannwhitneyu)
+* If you hvae independent samples and normally distributed data, use thisL: [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+
+* If you have paired samples and data that doesn't follow a normal distribution use this: [Wilcoxon signed-rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html?highlight=wilcoxon#scipy.stats.wilcoxon)
+
+* If you have independent samples and data that doesn't follow a normal distribution use this:[Mann–Whitney U test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html?highlight=mannwhitney#scipy.stats.mannwhitneyu)
+
+
 
 ## The MNIST dataset
 The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/)
