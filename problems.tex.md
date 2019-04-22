@@ -34,12 +34,12 @@ images, labels = load_mnist(digits=[9], path='.')
 plt.imshow(images.mean(axis=0), cmap = 'gray')
 plt.show()
 ```
-# Coding (5 points)
+# Coding (2 points)
 Describe coding part.
 
-# Free-response questions (5 points)
+# Free-response questions (8 points, total)
 
-#### Understanding SVMs (1.5 points, total)
+#### Understanding SVMs (1.5 points)
 
 1. (0.5 point): Support vector machines use a kernel. We don’t need to have the inputs to the kernel be vectors of numbers. They could be anything, as long as a function K exists that calculates the distance between them and the function satisfies certain conditions (e.g. positive-definite). This led people to find kernel for things that don’t start out as vectors. For example, text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
 
@@ -47,18 +47,28 @@ Describe coding part.
 
 3. (0.5 points): Explain why a support vector machine, once trained, does not directly use the decision boundary to classify points.
 
-#### the MNIST data (1.5 points)
+#### the MNIST data (1 point)
 4. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color pallate of MNIST (grayscale, black & white, RGB)?
 
 5. (0.5 points) Look at 50 examples of one of the digits from the MNIST data. Show us some of the cases that you think might be challenging to be recognized by a classifier. Explain why you think the digits you illustrated in the previous question may be challenging.
 
-6. (0.5 points) You're going to want to do repeatable experiments on MNIST Explain how you should select training and testing sets. Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another? Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Justify your method for selecting the training and testing sets in terms of these goals.
+#### Running experiments (5.5 points)
 
-#### Running experiments
+A *data split* specifies what portion of the data is used for training vs testing. 
 
-We want to find the best kernel and slack cost, C, for handwritten digit recognition on MNIST using a support vector machine. Draw kernels from the set {Linear, Polynomial, Radial Basis Function}. Draw C from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. Measure testing error on each combination of kernel and C. For each unique combination of kernel and C repeat this measurement multiple times, each with a different test-train split. Then answer the following questions.
+Define a *draw* from the data as one random selection of testing/training, given a data split.
 
-7. (0.5 points) A *condition* is a choice of model hyper-parameters. In the case of our SVM, this is a kernel + slack cost. A *data split* is one selection of testing/training data from the dataset. A *trail* is  one test/train of a model in a condition, given a data split. How many trials per condition will you run? Why that many?
+A *condition* is a choice of experimental parameters (model parameters). In the case of our SVM experimentts, this is a selection of kernel + slack cost.
+
+Call a *trail* one test/train of a model in a condition, given a draw from the data.
+
+6. (0.5 points) You are going to do repeatable experiments on MNIST to see how well an SVM can classify the handwritten digits. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Justify your method for selecting the training and testing sets in terms of these goals. (Here's some terms to help. ) Specifically:
+* Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?)
+* Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data.
+
+We want to find the best kernel and slack cost, C, for handwritten digit recognition on MNIST using a support vector machine. Draw kernels from the set {Linear, Polynomial, Radial Basis Function}. Vary C over the set { 10^-2, 10^-1, 10^0, 10, 10^2}. Measure testing error on each combination of kernel and C (i.e. each condition). For each condition, repeat this measurement multiple times, each with a different draw of the data. Then answer the following questions.
+
+7. (0.5 points)   How many trials per condition will you run? Why that many?
 
 8. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of C (horizontal). Use average results across all kernels. Don't forget to indicate **n** on your plot, where n is the number trials per boxplot. Don't forget to label your dimensions. 
 
