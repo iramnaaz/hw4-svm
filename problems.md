@@ -9,6 +9,14 @@ If you want an example of how to train and call a classifier from scikit-learn, 
 Most classifiers have similarly good documentation and are called in similar ways.
 For easy-to-use model selection, cross validation, etc, check out [the documentation on model selection](http://scikit-learn.org/stable/model_selection.html#model-selection)
 
+## SciPy and statistical tests
+Here are three helpful links to statistical tests:
+* [paired samples ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
+
+* [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+
+* [mann-whitney unsigned rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html?highlight=mannwhitney#scipy.stats.mannwhitneyu)
+
 ## The MNIST dataset
 The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/)
 We've provided a data loader for you in `mnist.py`. Here's an example of how you'd visualize a single handwritten digit from MNIST 
