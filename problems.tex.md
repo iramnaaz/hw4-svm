@@ -14,7 +14,7 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 * If you have paired samples and normally distributed data, use this: [paired samples ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
 
-* If you hvae independent samples and normally distributed data, use thisL: [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+* If you have independent samples and normally distributed data, use this: [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
 
 * If you have paired samples and data that doesn't follow a normal distribution use this: [Wilcoxon signed-rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html?highlight=wilcoxon#scipy.stats.wilcoxon)
 
