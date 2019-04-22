@@ -57,7 +57,9 @@ Describe coding part.
 
 7. (0.5 points) Some question about what is the appropriate statistical test to use, given the way they selected training\testing sets.
 
-#### We want to find the best kernel and slack cost, C, for handwritten digit recognition on MNIST using a support vector machine. Draw kernels from the set {Linear, Polynomial, Radial Basis Function}. Draw C from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. Measure testing error on each combination of kernel and C. For each unique combination of kernel and C repeat this measurement **HOW MANY?** times, each with a different test-train split. Then answer the following questions.
+#### Running experiments
+
+We want to find the best kernel and slack cost, C, for handwritten digit recognition on MNIST using a support vector machine. Draw kernels from the set {Linear, Polynomial, Radial Basis Function}. Draw C from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. Measure testing error on each combination of kernel and C. For each unique combination of kernel and C repeat this measurement **HOW MANY?** times, each with a different test-train split. Then answer the following questions.
 
 8. (0.25 points) Make a boxplot graph that plots testing error (vertical) as a function of C (horizontal). Use average results across all kernels. 
 
