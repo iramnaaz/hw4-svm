@@ -21,7 +21,6 @@ Here are some helpful statistical tests to determine whether two samples are dra
 * If you have independent samples and data that doesn't follow a normal distribution use this:[Mann–Whitney U test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.mannwhitneyu.html?highlight=mannwhitney#scipy.stats.mannwhitneyu)
 
 
-
 ## The MNIST dataset
 The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/). 
 We've provided a data loader for you in `mnist.py`. Here's an example of how you'd visualize a single handwritten digit from MNIST 
@@ -77,22 +76,3 @@ We want to find the best kernel and slack cost, C, for handwritten digit recogni
 
 15. (0.25) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
 
-
-
-
-
-
-
-
-
-
-
-# These are some prior year's questions I'm using as inspiration.
-
-(1 point) Select a statistical test to determine whether the sample error means of your
-spell-corrector with the two distance measures (standard Levenshtein and the one with
-hill-climber learned weights) are significantly different at the 95% confidence level.
-Explain why you chose that test. Apply that test to the data from step (B). Report the
-results. If, for some reason, you feel the tests discussed in class are not applicable,
-consider using the sign test (http://en.wikipedia.org/wiki/Sign_test ) to determine whether
-the difference between the sample error medians is significant.
