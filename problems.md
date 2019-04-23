@@ -23,34 +23,35 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 ## The MNIST dataset
 The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/). 
-We've provided a data loader for you in `mnist.py`. Here's an example of how you'd visualize a single handwritten digit from MNIST 
+We've provided a data loader for you in `mnist.py`. 
 
-```
-import matplotlib.pyplot as plt
-import numpy as np
-from mnist import load_mnist
-images, labels = load_mnist(digits=[9], path='.')
-#Displaying the mean image for digit 9.
-plt.imshow(images.mean(axis=0), cmap = 'gray')
-plt.show()
-```
-# Coding (1.5 points???)
-Describe coding part.
+# Coding (0 points)
+There is no coding graded for this homework. That said, do hand in whatever code you did for data loadin, visualization ,etc. 
 
-# Free-response questions (8 points, total)
+# Free-response questions (10 points, total)
 
 #### Understanding SVMs (1.5 points)
 
-1. (0.5 point): Support vector machines use a kernel. People build kernels for things that don’t start out as vectors, such as text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
+1. (0.5 point)Support vector machines use a kernel. People build kernels for things that don’t start out as vectors, such as text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
 
-2. (0.5 points): Explain how a support vector machine is related to a K nearest neighbor classifier. *Hint, think about the support vectors.*
+2. (0.5 points) Explain why a support vector machine using a kernel, once trained, does not directly use the decision boundary to classify points. 
 
-3. (0.5 points): Explain why a support vector machine, once trained, does not directly use the decision boundary to classify points.
+3. (0.5 points) If the support vector machine does not directly use the decision boundary to classify points, how does it, in fact, classify points. *Hint, what are the support vectors?*
+
+#### Understanding Statistical tests (1.5 points)
+4. (0.25 points) When performing a statistical test to compare two populations, the idea is to determine whether you can reject the null hypothesis. What is the null hypothesis?  
+
+5. (0.25 points) When a statistiacl test, such as a t-test, returns a p-value what does the p-value mean? Translate it to English.   
+
+6. (0.25 points) Of the four statistical tests mentioned at the top of this homework, which one is the most generally applicable? Why is that the case?
+
+7. (0.25 points) Why would you ever use a statistical test that is NOT the most generally applicable?  
+
 
 #### the MNIST data (1 point)
 4. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color pallate of MNIST (grayscale, black & white, RGB)?
 
-5. (0.5 points) Look at 50 examples of one of the digits from the MNIST data. Show us some of the cases that you think might be challenging to be recognized by a classifier. Explain why you think the digits you illustrated in the previous question may be challenging.
+5. (0.5 points) Look at 50 examples of one of the digits from the MNIST data. Show us 3 examples that you think might be challenging to be recognized by a classifier. Explain why you think the digits you illustrated in the previous question may be challenging.
 
 #### Designing the experiment (1.5 points)
 We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. We will combine each kernel with a variety of **C** values drawn from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. This results in 15 variants of the SVM. We will now design an experiment to determine the best variant.
@@ -59,9 +60,9 @@ A *data split* specifies what portion of the data is used for training vs testin
 
 Define a *draw* from the data as one random selection of testing/training, given a data split.
 
-A *condition* is a choice of experimental parameters (model parameters). In the case of our SVM experimentts, this is a selection of kernel + slack cost.
+A *condition* is a choice of experimental parameters (model parameters). In the case of our SVM experiments, this is a selection of kernel + slack cost.
 
-Call a *trail* one test/train of a model in a condition, given a draw from the data.
+Call a *trial* one test/train of a model in a condition, given a draw from the data.
 
 6. (0.5 points) We want to see how well different varients of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
@@ -92,5 +93,5 @@ Call a *trail* one test/train of a model in a condition, given a draw from the d
 
 #### Putting these results in context (0.5 point)
 
-18. (0.5 points) Compare your results with [previous results found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? Do your results agree with theirs? 
+18. (0.5 points) Compare your results with the [previous results for SVMs found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? How does your best kernel do compared to that one?  *Aside: A Gaussian Kernel is a Radial Basis Function kernel* 
 
