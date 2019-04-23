@@ -32,7 +32,7 @@ There is no coding graded for this homework. That said, do hand in whatever code
 
 #### Understanding SVMs (1.5 points)
 
-1. (0.5 point)Support vector machines use a kernel. People build kernels for things that don’t start out as vectors, such as text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
+1. (0.5 point) Support vector machines use a kernel. People build kernels for things that don’t start out as vectors, such as text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*, using a toy example. Also give a citation for a research paper that describes it. Include a web link.
 
 2. (0.5 points) Explain why a support vector machine using a kernel, once trained, does not directly use the decision boundary to classify points. 
 
