@@ -49,9 +49,9 @@ There is no coding graded for this homework. That said, do hand in whatever code
 
 
 #### the MNIST data (1 point)
-4. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color pallate of MNIST (grayscale, black & white, RGB)?
+8. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color pallate of MNIST (grayscale, black & white, RGB)?
 
-5. (0.5 points) Look at 50 examples of one of the digits from the MNIST data. Show us 3 examples that you think might be challenging to be recognized by a classifier. Explain why you think the digits you illustrated in the previous question may be challenging.
+9. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples that you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
 #### Designing the experiment (1.5 points)
 We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. We will combine each kernel with a variety of **C** values drawn from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. This results in 15 variants of the SVM. We will now design an experiment to determine the best variant.
@@ -64,34 +64,34 @@ A *condition* is a choice of experimental parameters (model parameters). In the 
 
 Call a *trial* one test/train of a model in a condition, given a draw from the data.
 
-6. (0.5 points) We want to see how well different varients of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
+10. (0.5 points) We want to see how well different varients of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-7. (0.25 points) What will your test train data split be? Why did you pick that?
+11. (0.25 points) What will your test train data split be? Why did you pick that?
 
-8. (0.25 points) Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data so that trials are independent.
+12. (0.25 points) Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data so that trials are independent.
 
-9. (0.25 points) How many trials per condition will you run? Why that many?
+13. (0.25 points) How many trials per condition will you run? Why that many?
 
-10. (0.25 points) What evaluation measure will you use to compare the effectiveness of handwritten digit recognition?
+14. (0.25 points) What evaluation measure will you use to compare the effectiveness of handwritten digit recognition?
 
 #### Reporting the results (4 points)
-11. (0.5 points) Create a table with 3 rows (1 kernel per row) and 5 columns (the 5 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
+15. (0.5 points) Create a table with 3 rows (1 kernel per row) and 5 columns (the 5 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
 
-12. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
+16. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-13. (0.5 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+17. (0.5 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-14. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant? Is this a good or bad value? How did you determine that?
+18. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant? Is this a good or bad value? How did you determine that?
 
-15. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
+19. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-15. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+20. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-16. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+21. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
 
-17. (0.5 points) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
+22. (0.5 points) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
 
 #### Putting these results in context (0.5 point)
 
-18. (0.5 points) Compare your results with the [previous results for SVMs found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? How does your best kernel do compared to that one?  *Aside: A Gaussian Kernel is a Radial Basis Function kernel* 
+23. (0.5 points) Compare your results with the [previous results for SVMs found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? How does your best kernel do compared to that one?  *Aside: A Gaussian Kernel is a Radial Basis Function kernel* 
 
