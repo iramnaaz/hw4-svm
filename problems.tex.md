@@ -38,7 +38,7 @@ There is no coding graded for this homework. That said, do hand in whatever code
 
 3. (0.5 points) If the support vector machine does not directly use the decision boundary to classify points, how does it, in fact, classify points. *Hint, what are the support vectors?*
 
-#### Understanding Statistical tests (1.5 points)
+#### Understanding Statistical tests (1 point)
 4. (0.25 points) When performing a statistical test to compare two populations, the idea is to determine whether you can reject the null hypothesis. What is the null hypothesis?  
 
 5. (0.25 points) When a statistiacl test, such as a t-test, returns a p-value what does the p-value mean? Translate it to English.   
