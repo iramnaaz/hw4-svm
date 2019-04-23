@@ -78,19 +78,19 @@ Call a *trail* one test/train of a model in a condition, given a draw from the d
 
 12. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-13. (0.5) What statistical test should you use to do pairwise comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+13. (0.5 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-14. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+14. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant? Is this a good or bad value? How did you determine that?
 
 15. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-15. (0.5) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+15. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
 
-16. (0.5) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
+16. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of C statistically significant?
 
-17. (0.5) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
+17. (0.5 points) Is the combination of kernel and C that shows the best error in the table from the previous question the same combination that resulted from considering C and kernel independently?
 
 #### Putting these results in context (0.5 point)
 
-18. (0.5) Compare your results with [previous results found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? Do your results agree with theirs? 
+18. (0.5 points) Compare your results with [previous results found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? Do your results agree with theirs? 
 
