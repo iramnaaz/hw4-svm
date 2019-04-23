@@ -41,7 +41,7 @@ Describe coding part.
 
 #### Understanding SVMs (1.5 points)
 
-1. (0.5 point): Support vector machines use a kernel. We don’t need to have the inputs to the kernel be vectors of numbers. They could be anything, as long as a function K exists that calculates the distance between them and the function satisfies certain conditions (e.g. positive-definite). This led people to find kernel for things that don’t start out as vectors. For example, text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
+1. (0.5 point): Support vector machines use a kernel. People build kernels for things that don’t start out as vectors, such as text documents. Research on the web to find the name of a kernel used on words or strings. Tell us what it is called. Briefly explain how it works *in your own words*. Also give a citation for a research paper that describes it. Include a web link.
 
 2. (0.5 points): Explain how a support vector machine is related to a K nearest neighbor classifier. *Hint, think about the support vectors.*
 
