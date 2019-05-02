@@ -22,11 +22,12 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 
 ## The MNIST dataset
-The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/). 
-We've provided a data loader for you in `mnist.py`. 
+The MNIST dataset of handwritten digits is included with this assignment (train-images-idx3-ubyte, train-labels-idx1-ubyte), and you can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py`, but you must download the dataset for yourself. You will need to use the data loader for some questions below. 
 
-# Coding (0 points)
-There is no coding graded for this homework. That said, do hand in whatever code you did for data loading, visualization ,etc. 
+# Coding (0.0 points)
+There is only one autograded test for this assignment and that is the `test_netid.py` test. You will not have to write any other code to pass the tests. You will, however, still have coding to do for the experiments. You must hand in whatever code you did for data loading, your visualizations, and experiments by pushing to github (as you did for all previous assignments). Your code should be in the `code/` directory. Homeworks turned in without code will get a 0 on this assignment.
+
+You should make a conda environment for this homework just like you did for previous homeworks. We have included a `requirements.txt`.
 
 # Free-response questions (10 points, total)
 
@@ -45,7 +46,7 @@ There is no coding graded for this homework. That said, do hand in whatever code
 9. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples that you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
 #### Designing the experiment (1.5 points)
-We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. We will combine each kernel with a variety of **C** values drawn from the set { 10^-2, 10^-1, 10^0, 10, 10^2}. This results in 15 variants of the SVM. We will now design an experiment to determine the best variant.
+We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 10^0, 10 }. This results in 9 variants of the SVM. We will now design an experiment to determine the best variant.
 
 A *data split* specifies what portion of the data is used for training vs testing. 
 
@@ -55,18 +56,20 @@ A *condition* is a choice of experimental parameters (model parameters). In the 
 
 Call a *trial* one test/train of a model in a condition, given a draw from the data.
 
-10. (0.5 points) We want to see how well different variants of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
+10. (0.5 points) Pick a **C** value. Try training a linear SVM on 1000 examples from the training set. Train another SVM with 2000 examples, then 4000 examples. Do the same three experiments with a polynomial, and radial basis function (RBF) filter. Report what **C** value you picked and the time it took to train each of your SVMs. (_HINT:_ Use python's built-in `time` module to time your experiments!) What happened as you added more data? What happened as you changed kernels? What does this tell you about trying to train on the whole training set? Does it seem feasible to do before this homework assignment is due?
 
-11. (0.25 points) What will your test train data split be? Why did you pick that?
+11. (0.5 points) Given that you will have to create a subset of the training and testing data, describe a way to pick a subset such that we can trust the results of our SVM. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-12. (0.25 points) Given the previous constraints on how to select testing/training, explain how you'll get different random draws from the data so that trials are independent.
-
-13. (0.25 points) How many trials per condition will you run? Why that many?
+12. (0.25 points) How many examples will be in your training set? Testing set? How many trials per condition will you run? (Keep in mind that we will be asking you to do statistical tests about your SVM results) Why that many?
 
 14. (0.25 points) What evaluation measure will you use to compare the effectiveness of handwritten digit recognition?
 
+
+###### Note: There is a tutorial about running python code in parallel included in this repo. Use what you've learned there in your experiments; it will make things much quicker for you! Look for it here: `code/parallel_tutorial.py`.
+
 #### Reporting the results (4 points)
-15. (0.5 points) Create a table with 3 rows (1 kernel per row) and 5 columns (the 5 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
+15. (0.5 points) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
+**WARNING: Training each trial with all 9 kernel and slack settings will take a long time! Plan accordingly.**
 
 16. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 

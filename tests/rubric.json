@@ -1,8 +1,4 @@
 {
-    "test_imports": {
-        "weight": "required",
-        "depends": []
-    },
     "test_netid": {
         "weight": "required",
         "depends": []
