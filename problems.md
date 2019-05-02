@@ -10,11 +10,11 @@ Most classifiers have similarly good documentation and are called in similar way
 For easy-to-use model selection, cross validation, etc, check out [the documentation on model selection](http://scikit-learn.org/stable/model_selection.html#model-selection)
 
 ## SciPy and statistical tests
-Here are some helpful statistical tests to determine whether two samples are drawn from the same underyling distribution.
+Here are some helpful statistical tests to determine whether two samples are drawn from the same underlying distribution.
 
-* If you have paired samples and normally distributed data, use this: [paired samples ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
+* If you have paired samples and normally distributed data, use this: [paired samples t-test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)
 
-* If you have independent samples and normally distributed data, use this: [independent sampes ttest](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
+* If you have independent samples and normally distributed data, use this: [independent samples t-test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html)
 
 * If you have paired samples and data that doesn't follow a normal distribution use this: [Wilcoxon signed-rank test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.wilcoxon.html?highlight=wilcoxon#scipy.stats.wilcoxon)
 
@@ -26,7 +26,7 @@ The MNIST dataset of handwritten digits is included with this assignment (train-
 We've provided a data loader for you in `mnist.py`. 
 
 # Coding (0 points)
-There is no coding graded for this homework. That said, do hand in whatever code you did for data loadin, visualization ,etc. 
+There is no coding graded for this homework. That said, do hand in whatever code you did for data loading, visualization ,etc. 
 
 # Free-response questions (10 points, total)
 
@@ -40,7 +40,7 @@ There is no coding graded for this homework. That said, do hand in whatever code
 
 
 #### the MNIST data (1 point)
-8. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color pallate of MNIST (grayscale, black & white, RGB)?
+8. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color palette of MNIST (grayscale, black & white, RGB)?
 
 9. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples that you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
@@ -55,7 +55,7 @@ A *condition* is a choice of experimental parameters (model parameters). In the 
 
 Call a *trial* one test/train of a model in a condition, given a draw from the data.
 
-10. (0.5 points) We want to see how well different varients of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of handwriters, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
+10. (0.5 points) We want to see how well different variants of SVM can classify the handwritten digits in MNIST. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
 11. (0.25 points) What will your test train data split be? Why did you pick that?
 
