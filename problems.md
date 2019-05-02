@@ -60,7 +60,7 @@ Call a *trial* one test/train of a model in a condition, given a draw from the d
 
 11. (0.5 points) Given that you will have to create a subset of the training and testing data, describe a way to pick a subset such that we can trust the results of our SVM. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-12. (0.25 points) How many examples will be in your training set? Testing set? How many trials per condition will you run? (Keep in mind that we will be asking you to do statistical tests about your SVM results) Why that many?
+12. (0.25 points) How many examples will be in your training set? Testing set? MNIST is already separated into training and testing sets. From which set will you make your training set? Testing set? How many trials per condition will you run? (Keep in mind that we will be asking you to do statistical tests about your SVM results) Why that many?
 
 14. (0.25 points) What evaluation measure will you use to compare the effectiveness of handwritten digit recognition?
 
