@@ -22,7 +22,7 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 
 ## The MNIST dataset
-The MNIST dataset of handwritten digits is used for this assignment. You can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py`, but you must download the dataset for yourself. You will need to use the data loader for some questions below. 
+The MNIST dataset of handwritten digits is used for this assignment. You can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py`, but you must download the dataset for yourself. We've provided a data loader for you in `mnist.py`, but you must download and extract the dataset for yourself. Make sure you download all four files (`train-images-idx3-ubyte.gz`, `train-labels-idx1-ubyte.gz`, `t10k-images-idx3-ubyte.gz`, and `t10k-labels-idx1-ubyte.gz`). Instructions for extracting `.gz` files can be found for Windows and Mac [here](https://www.wikihow.com/Extract-a-Gz-File), and Unix instructions are [here](https://askubuntu.com/questions/25347/what-command-do-i-need-to-unzip-extract-a-tar-gz-file). Do not push these files to your github repository. You will need to use the data loader for some questions below. 
 
 # Coding (1.0 point...but homework turned in without code will get a 0)
 There is only one autograded test for this assignment and that is the `test_netid.py` test. You will not have to write any other code to pass the tests. You will, however, still have coding to do for the experiments. 
@@ -64,7 +64,7 @@ In one trial *trial* you select testing and traing data using your approach from
 
 ###### Note: You will have to do 180 trials. If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. 
 
-###### Note: There is a tutorial about running python code in parallel included in this repo. Use what you've learned there in your experiments; it will make things much quicker for you! Look for it here: `code/parallel_tutorial.py`.
+###### Note: There is a tutorial about running python code in parallel included in this repo. Though it is not required, it will make running your experiments much quicker! Look for it here: `code/parallel_tutorial.py`.
 
 9. (0.5 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the testing error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
 
