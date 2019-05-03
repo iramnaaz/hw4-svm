@@ -45,7 +45,7 @@ You should make a conda environment for this homework just like you did for prev
 
 4. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples of that digit you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
-#### Estimating training time (1.5 points)
+#### Estimating training time (1 point)
 5. (0.5 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data  Pick one of the **C** values. Try training a linear SVM on 1000 examples from the training set. Train another SVM with 2000 examples, then 4000 examples. Do the same three experiments with a polynomial, and radial basis function (RBF) kernel. Report what **C** value you picked and the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
 
 6. (0.5 points) Given your data from the previous question (and what you know about SVMs from lecture and reading), write a formula to estimate in clock time how long it would take to train an SVM on your machine, as a function of the number of training examples, given each of the 3 kernels. 
