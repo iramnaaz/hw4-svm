@@ -76,7 +76,7 @@ In one trial *trial* you select testing and traing data using your approach from
 
 13. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. Average results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-14. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer.
+14. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. _Note: Your boxplots from question 13 will not show you what the shape of each distribution. Look at the histograms of your distributions to decide which statistical test you should use._
 
 15. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of **C** statistically significant?
 
