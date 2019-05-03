@@ -59,7 +59,7 @@ You should make a conda environment for this homework just like you did for prev
 #### Finding the best hyperparameters (4 points)
 We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant (a.k.a. condition) run 20 trials. 
 
-In one trial *trial* you select testing and traing data using your approach from an earlier question. You then select the kernel and **C**. You then train the SVM on the training data until it converges. You then test the trained SVM on the testing data. For this assignment, we'll be using classfication error on the testing data as the outcome of a trail.  Save this data. We'll ask you to show it to us in different ways.
+In one trial *trial* you select testing and traing data using your approach from an earlier question. You then select the kernel and **C**. You then train the SVM on the training data until it converges. You then test the trained SVM on the testing data. For this assignment, we'll be using classfication error on the testing data as the outcome of a trial.  Save this data. We'll ask you to show it to us in different ways.
 
 ###### Note: You will have to do 180 trials. If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. 
 
