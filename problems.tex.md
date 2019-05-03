@@ -24,13 +24,12 @@ Here are some helpful statistical tests to determine whether two samples are dra
 ## The MNIST dataset
 The MNIST dataset of handwritten digits is used for this assignment. You can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py`, but you must download the dataset for yourself. We've provided a data loader for you in `mnist.py`, but you must download and extract the dataset for yourself. Make sure you download all four files (`train-images-idx3-ubyte.gz`, `train-labels-idx1-ubyte.gz`, `t10k-images-idx3-ubyte.gz`, and `t10k-labels-idx1-ubyte.gz`). Instructions for extracting `.gz` files can be found for Windows and Mac [here](https://www.wikihow.com/Extract-a-Gz-File), and Unix instructions are [here](https://askubuntu.com/questions/25347/what-command-do-i-need-to-unzip-extract-a-tar-gz-file). Do not push these files to your github repository. You will need to use the data loader for some questions below. 
 
-# Coding (1.0 point...but homework turned in without code will get a 0)
+# Coding (0 points...but free response answers without supporting code may get a 0)
 There is only one autograded test for this assignment and that is the `test_netid.py` test. You will not have to write any other code to pass the tests. You will, however, still have coding to do for the experiments. 
 
-You must hand in whatever code you did for data loading, your visualizations, and experiments by pushing to github (as you did for all previous assignments). Your code should be in the `code/` directory. If there is code in there, you get the point. 
+You must hand in whatever code you did for data loading, your visualizations, and experiments by pushing to github (as you did for all previous assignments). Your code should be in the `code/` directory.   
 
 **NOTE: if we have any doubts about your experiments we reserve the right to check this code to see if your results could have been generated using this code. If we don't believe it, or if there is no code at all, then you may receive a 0 for any free-response answer that would have depended on running code.**
-
 
 You should make a conda environment for this homework just like you did for previous homeworks. We have included a `requirements.txt`.
 
