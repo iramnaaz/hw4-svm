@@ -45,8 +45,8 @@ You should make a conda environment for this homework just like you did for prev
 
 4. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples of that digit you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
-#### Estimating training time (1 point)
-5. (0.5 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data.  Use the default **C** value. Try training a linear SVM on 1000 examples from the training set. Train another SVM with 2000 examples, then 4000 examples. Do the same three experiments with a polynomial, and radial basis function (RBF) kernel. Use the default value of 3 for the degree of the polynomial. Report what **C** value you picked and the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
+#### Estimating training time (1.5 points)
+5. (1 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data.  Use the default **C** value. Try training a linear SVM on 1000 examples from the training set. Train another SVM with 2000 examples, then 4000 examples. Do the same three experiments with a polynomial, and radial basis function (RBF) kernel. Use the default value of 3 for the degree of the polynomial. Report what **C** value you picked and the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
 
 6. (0.5 points) Given your data from the previous question (and what you know about SVMs from lecture and reading), write a formula to estimate in clock time how long it would take to train an SVM on your machine, as a function of the number of training examples, given each of the 3 kernels. 
 
@@ -56,7 +56,7 @@ You should make a conda environment for this homework just like you did for prev
 
 8. (0.5 points) Now you have to decide how to make a draw from the data that has good coverage. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-#### Finding the best hyperparameters (4 points)
+#### Finding the best hyperparameters (4.5 points)
 We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant (a.k.a. condition) run 20 trials. 
 
 In one trial *trial* you select testing and traing data using your approach from an earlier question. You then select the kernel and **C**. You then train the SVM on the training data until it converges. You then test the trained SVM on the testing data. For this assignment, we'll be using classfication error on the testing data as the outcome of a trial.  Save this data. We'll ask you to show it to us in different ways.
@@ -65,7 +65,7 @@ In one trial *trial* you select testing and traing data using your approach from
 
 ###### Note: There is a tutorial about running python code in parallel included in this repo. Though it is not required, it will make running your experiments much quicker! Look for it here: `code/parallel_tutorial.py`.
 
-9. (0.5 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the testing error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
+9. (1 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the testing error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
 
 10. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** (horizontal). Use average results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
