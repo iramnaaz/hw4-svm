@@ -46,22 +46,31 @@ You should make a conda environment for this homework just like you did for prev
 4. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples of that digit you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
 #### Estimating training time (1.5 points)
-5. (1 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data.  Use the default **C** value. Try training a linear SVM on 1000 examples from the training set. Train another SVM with 2000 examples, then 4000 examples. Do the same three experiments with a polynomial, and radial basis function (RBF) kernel. Use the default value of 3 for the degree of the polynomial. Report what **C** value you picked and the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
+5. (1 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data.  Use the default **C** value.  Use the linear kernel and train an SVM on three different sizes of data set:  500 examples, 1000 examples, 2000 examples. Record how long it takes to train on each data set. Repeat this timing experiment with a polynomial kernel. Use the default value of 3 for the degree of the polynomial. Repeat the experiment with a radial basis function (RBF) kernel. Report the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
 
-6. (0.5 points) Given your data from the previous question (and what you know about SVMs from lecture and reading), write a formula to estimate in clock time how long it would take to train an SVM on your machine, as a function of the number of training examples, given each of the 3 kernels. 
+6. (0.5 points) In general, SVMs take $O(n^3)$ to train, where $n$ is the size of the training set. But how does that translate to predicting training time in the real world? Given your data from the previous question, write a formula to estimate in clock time how long it would take to train an SVM on your machine, as a function of the number of training examples, given each of the 3 kernels.  
 
 #### Selecting training and testing data  (1 point)
 
-7. (0.5 points) Given your formula from the previous question, what size of training set would guarantee a single trial for your SVM takes no longer than 2 minutes? Assume this will determine the size of your training set. Now that you have this, tell us how big your testing set will be.
+7. (0.5 points) Given your formula from the previous question, what size of training set would guarantee a single trial for your SVM takes about 2 minutes? Assume this will determine the size of your training set. Now that you have this, tell us how big your testing set will be.  
 
 8. (0.5 points) Now you have to decide how to make a draw from the data that has good coverage. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
 #### Finding the best hyperparameters (4.5 points)
-We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant (a.k.a. condition) run 20 trials. 
+We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant (a.k.a. condition) run 20 trials.  
 
-In one trial *trial* you select testing and traing data using your approach from an earlier question. You then select the kernel and **C**. You then train the SVM on the training data until it converges. You then test the trained SVM on the testing data. For this assignment, we'll be using classfication error on the testing data as the outcome of a trial.  Save this data. We'll ask you to show it to us in different ways.
+What's a trial? In one **trial** you...
 
-###### Note: You will have to do 180 trials. If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. 
+* Select testing and traing data using your approach from an earlier question.  
+* Select the condition: your kernel and value for C
+* Train the SVM on the training data until it converges. 
+* Test the trained SVM on the testing data. 
+
+To run mutiple trials for the same condition, you select a new testing and traing set for each trial. 
+
+For this assignment, we'll be using classfication error on the testing data as the outcome of a trial.  Save this data. We'll ask you to show it to us in different ways.
+
+###### Note: You will have to do 180 trials (9 conditions, 20 trials per condition). If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. 
 
 ###### Note: There is a tutorial about running python code in parallel included in this repo. Though it is not required, it will make running your experiments much quicker! Look for it here: `code/parallel_tutorial.py`.
 
