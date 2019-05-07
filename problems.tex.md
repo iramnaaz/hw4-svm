@@ -86,7 +86,7 @@ For this assignment, we'll be using classfication error on the testing data as t
 
 14. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. 
 
-15. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of **C** statistically significant?
+15. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of kernel statistically significant?
 
 16. (0.5 points) Is the combination of kernel and **C** that shows the best error in the table from the previous question the same combination that resulted from considering **C** and kernel independently? Which one do you believe?
 
