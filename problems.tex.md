@@ -88,7 +88,8 @@ For this assignment, we'll be using classfication error on the testing data as t
 
 15. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of kernel statistically significant?
 
-16. (0.5 points) Is the combination of kernel and **C** that shows the best error in the table from the previous question the same combination that resulted from considering **C** and kernel independently? Which one do you believe?
+16. (0.5 points) Is the combination of kernel and **C** that shows the best error in the table from question 9 the same combination that resulted from considering **C** and kernel independently, as you did when you generated the boxplots in questions 10 and 13? Which one do you believe?
+
 
 #### Putting these results in context (0.5 point)
 
