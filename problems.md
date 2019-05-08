@@ -90,6 +90,7 @@ For this assignment, we'll be using classfication error on the testing data as t
 
 16. (0.5 points) Is the combination of kernel and **C** that shows the best error in the table from question 9 the same combination that resulted from considering **C** and kernel independently, as you did when you generated the boxplots in questions 10 and 13? Which one do you believe?
 
+
 #### Putting these results in context (0.5 point)
 
 17. (0.5 points) Compare your results with the [previous results for SVMs found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? How does your best kernel do compared to that one?  *Aside: A Gaussian Kernel is a Radial Basis Function kernel* 
