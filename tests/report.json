@@ -1,0 +1,11 @@
+{
+    "score": 0,
+    "tests_passed": 0,
+    "notes": {
+        "test_experiment_run_mnist_grid": "FAIL",
+        "test_experiment_run_polynomial_grid": "FAIL",
+        "test_experiment_run_polynomial_random": "FAIL",
+        "test_worker": "FAIL",
+        "test_grid_permutations": "FAIL"
+    }
+}

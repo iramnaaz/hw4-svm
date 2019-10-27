@@ -4,8 +4,8 @@
 ## Scikit learn
 
 You will use [scikit-learn](http://scikit-learn.org/stable/index.html), a machine learning library for Python, to answer questions in this homework. 
-You should be running the latest stable version of scikit-learn (0.20.3, as of this writing).
-If you want an example of how to train and call a classifier from scikit-learn, have a look at the [man page for the support vector machine](http://scikit-learn.org/stable/modules/svm.html#multi-class-classification).
+You should be running the latest stable version of scikit-learn (0.21.3, as of this writing).
+If you want an example of how to train and call a classifier from scikit-learn, have a look at the [main page for the support vector machine](http://scikit-learn.org/stable/modules/svm.html#multi-class-classification).
 Most classifiers have similarly good documentation and are called in similar ways.
 For easy-to-use model selection, cross validation, etc, check out [the documentation on model selection](http://scikit-learn.org/stable/model_selection.html#model-selection)
 
@@ -22,78 +22,59 @@ Here are some helpful statistical tests to determine whether two samples are dra
 
 
 ## The MNIST dataset
-The MNIST dataset of handwritten digits is used for this assignment. You can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py`, but you must download the dataset for yourself. We've provided a data loader for you in `mnist.py`, but you must download and extract the dataset for yourself. Make sure you download all four files (`train-images-idx3-ubyte.gz`, `train-labels-idx1-ubyte.gz`, `t10k-images-idx3-ubyte.gz`, and `t10k-labels-idx1-ubyte.gz`). Instructions for extracting `.gz` files can be found for Windows and Mac [here](https://www.wikihow.com/Extract-a-Gz-File), and Unix instructions are [here](https://askubuntu.com/questions/25347/what-command-do-i-need-to-unzip-extract-a-tar-gz-file). Do not push these files to your github repository. You will need to use the data loader for some questions below. 
+The MNIST dataset of handwritten digits is used for this assignment. You can read more about it [here](http://yann.lecun.com/exdb/mnist/). We've provided a data loader for you in `mnist.py` and we also added the training and testing data files to the data folder. Make sure that the folder contains the following files `train-images-idx3-ubyte`, `train-labels-idx1-ubyte`, `t10k-images-idx3-ubyte`, and `t10k-labels-idx1-ubyte`).
 
-# Coding (0 points...but free response answers without supporting code may get a 0)
-There is only one autograded test for this assignment and that is the `test_netid.py` test. You will not have to write any other code to pass the tests. You will, however, still have coding to do for the experiments. 
+## The CIRCLE dataset
+The CIRCLE dataset is a handcrafted dataset which shows a circle within another circle. That means, that this dataset is not separable by a linear hyperplane (At least without applying a special kernel to it). You can find a function `load_circle()` in the file `circle.py` which will load this dataset. This dataset is only there for the test cases and the coding part of the assignment. You will only need the MNIST dataset to answer the free response questions.
 
-You must hand in whatever code you did for data loading, your visualizations, and experiments by pushing to github (as you did for all previous assignments). Your code should be in the `code/` directory.   
+# Coding (5 points)
 
-**NOTE: if we have any doubts about your experiments we reserve the right to check this code to see if your results could have been generated using this code. If we don't believe it, or if there is no code at all, then you may receive a 0 for any free-response answer that would have depended on running code.**
+The main task for this assignment will be building two hyperparameter tuners. Your code for the GridSearchCV tuner should fit into `grid_search.py` while the RandomSearchCV code goes into the `random_search.py` script. Both files already contain an outline for your code. You can find more details about hyperparameter tuning and the mentioned algorithms [here](https://en.wikipedia.org/wiki/Hyperparameter_optimization).
 
+To boost the performance of your code we also included a parallelizer that can run mutliple training jobs or worker tasks on different threads at the same time. You can find the code for that in `parallelizer.py`. Read through the comments of this file so that you understand how the parallelization works. You can initialize a new parallelizer object with a worker function. This function and its signature is already given in `worker.py`.
+
+The test cases rely on the code that is already given in `experiment.py`. The only thing that you will need to change is the amount of MNIST data which we want to use during the training time. If we would use the whole MNIST dataset it takes several hours to train a single Support Vector Machine. Since we want to run mutliple experiments within our hyperparameter tuner, you need to change the value of the NUMBER_OF_MNIST_SAMPLES variable so that a single SVM training experiment including cross validation does not take longer than 2 minutes. In our case this number was set to 500 but feel free to change the number if you want to.
+ 
 You should make a conda environment for this homework just like you did for previous homeworks. We have included a `requirements.txt`.
 
-# Free-response questions (10 points, total)
+# Free-response questions (5 points)
 
 #### Understanding SVMs (1 point)
-1. (0.5 points) Explain why a support vector machine using a kernel, once trained, does not directly use the decision boundary to classify points. 
+1\. (0.5 points) Explain why a support vector machine using a kernel, once trained, does not directly use the decision boundary to classify points. 
 
-2. (0.5 points) If the support vector machine does not directly use the decision boundary to classify points, how does it, in fact, classify points. *Hint, what are the support vectors?*
+2\. (0.5 points) If the support vector machine does not directly use the decision boundary to classify points, how does it, in fact, classify points. *Hint, what are the support vectors?*
 
 #### the MNIST data (1 point)
-3. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color palette of MNIST (grayscale, black & white, RGB)?
+3\. (0.5 points) How many images are there in the MNIST data? How many images are there of each digit? How many different people's handwriting? Are the digit images all the same size and orientation? What is the color palette of MNIST (grayscale, black & white, RGB)?
 
-4. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples of that digit you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
+4\. (0.5 points) Select one of the digits from the MNIST data. Look through the variants of this digit that different people produced. Show us 3 examples of that digit you think might be challenging for a classifier to correctly classify. Explain why you think they might be challenging.
 
-#### Estimating training time (1.5 points)
-5. (1 point) Before running any serious experiments, first figure out how long your computer takes to train support vector machines on the MNIST data.  Use the default **C** value.  Use the linear kernel and train an SVM on three different sizes of data set:  500 examples, 1000 examples, 2000 examples. Record how long it takes to train on each data set. Repeat this timing experiment with a polynomial kernel. Use the default value of 3 for the degree of the polynomial. Repeat the experiment with a radial basis function (RBF) kernel. Report the time it took to train each of your SVMs in a table with 3 rows (1 kernel per row) and 3 columns (for the size of the training set). Rows and columns should be clearly labeled. (_HINT:_ Use python's built-in `time` module to time your experiments!) 
+#### Selecting training and testing data  (.5 points)
 
-6. (0.5 points) SVMs should take somwehere between <img src="/tex/90846c243bb784093adbb6d2d0b2b9d0.svg?invert_in_darkmode&sanitize=true" align=middle width=43.02219404999999pt height=26.76175259999998pt/> and <img src="/tex/3987120c67ed5a9162aa9841b531c3a9.svg?invert_in_darkmode&sanitize=true" align=middle width=43.02219404999999pt height=26.76175259999998pt/> to train, where <img src="/tex/55a049b8f161ae7cfeb0197d75aff967.svg?invert_in_darkmode&sanitize=true" align=middle width=9.86687624999999pt height=14.15524440000002pt/> is the size of the training set. But how does that translate to predicting training time in the real world? Given your data from the previous question, write a formula to estimate in clock time how long it would take to train an SVM on your machine, as a function of the number of training examples, given each of the 3 kernels.  
+5\. (0.5 points) Now you have to decide how to make a draw from the data for training and testing a model. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
-#### Selecting training and testing data  (1 point)
+#### Finding the best hyperparameters (2.5 points)
+To answer the following questions you should use your hyperparameter tuner. We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant we will be running 20 fold cross validation. You can simply call the run function within `experiment.py` with the right parameters to get all the results that you nedd. We consider one such cross validation experiment as a trial.
 
-7. (0.5 points) Given your formula from the previous question, what size of training set and testing set would you have to have so a single trial for your SVM takes about 2 minutes? Show your reasoning. *(Hint: a "trial" is defined later in this docmuent)*
+What's a trial? In one trial you...
 
-8. (0.5 points) Now you have to decide how to make a draw from the data that has good coverage. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
+- Select testing and training data using your approach from an earlier question.
+- Select the condition: your kernel and value for C.
+- Train the SVM on the training data until it converges.
+- Test the trained SVM on the testing data.
 
-#### Finding the best hyperparameters (4.5 points)
-We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant (a.k.a. condition) run 20 trials.  
+###### Note: You will have to do 180 trials (9 conditions, 20 trials per condition). If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. Therefore, it is crucial that you are using the parallelizer in your implementations.
 
-What's a trial? In one **trial** you...
+9\. (0.5 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the mean accuracy **a** of the trials, the standard deviation of the accuracy **std** and the number of trials/experiments **n**, written in the format: **mean(a),std(a),n**. 
 
-* Select testing and traing data using your approach from an earlier question.  
-* Select the condition: your kernel and value for C
-* Train the SVM on the training data until it converges. 
-* Test the trained SVM on the testing data. 
+10\. (0.5 points) Make a boxplot graph that plots accuracy (vertical) as a function of the slack **C** . There should be 3 boxplots in the graph, one per value of **C**. Use results across all kernels. Indicate **n** on your plot, where **n** is the number of trials per boxplot. Don't forget to label your dimensions. 
 
-To run mutiple trials for the same condition, you select a new testing and traing set for each trial. 
+11\. (0.25 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. _Note: Your boxplots will show you whether a distribution is skewed (and thus, not normal), but will not show you what the shape of each distribution. There are distributions that are not skewed, but are still not bell curves (normal distributions). It would be a good idea to look at the histograms of your distributions to decide which statistical test you should use._
 
-For this assignment, we'll be using classfication error on the testing data as the outcome of a trial.  Save this data. We'll ask you to show it to us in different ways.
+12\. (0.25 points) Give the p value reported by your test. Say what that p value means. 
 
-###### Note: You will have to do 180 trials (9 conditions, 20 trials per condition). If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. 
+13\. (0.5 points) Make a boxplot graph that plots accuracy (vertical) as a function of kernel choice. There should be 3 boxplots in the graph, one per kernel. Use results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
-###### Note: There is a tutorial about running python code in parallel included in this repo. Though it is not required, it will make running your experiments much quicker! Look for it here: `code/parallel_tutorial.py`.
+14\. (0.25 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. 
 
-9. (1 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the testing error measure **e**, the standard deviation of the error **std** and the number of trials **n**, written in the format: **e(std),n**. 
-
-10. (0.5 points) Make a boxplot graph that plots testing error (vertical) as a function of the slack **C** . There should be 3 boxplots in the graph, one per value of **C**. Use results across all kernels. Indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
-
-11. (0.5 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. _Note: Your boxplots will show you whether a distribution is skewed (and thus, not normal), but will not show you what the shape of each distribution. There are distributions that are not skewed, but are still not bell curves (normal distributions). It would be a good idea to look at the histograms of your distributions to decide which statistical test you should use._
-
-12. (0.5 points) Give the p value reported by your test. Say what that p value means. 
-
-13. (0.5 points) Make a boxplot graph that plots error (vertical) as a function of kernel choice. There should be 3 boxplots in the graph, one per kernel. Use results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
-
-14. (0.5 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. 
-
-15. (0.5 points) What is the result of your statistical test? Is the difference between the best and second best value of kernel statistically significant?
-
-16. (0.5 points) Is the combination of kernel and **C** that shows the best error in the table from question 9 the same combination that resulted from considering **C** and kernel independently, as you did when you generated the boxplots in questions 10 and 13? Which one do you believe?
-
-
-#### Putting these results in context (0.5 point)
-
-17. (0.5 points) Compare your results with the [previous results for SVMs found on MNIST](http://yann.lecun.com/exdb/mnist/). What is the best kernel reported there? How does your best kernel do compared to that one?  *Aside: A Gaussian Kernel is a Radial Basis Function kernel* 
-
-#### Showing us your data. 
-18. (0.5 points) Put the error from every individual trial into a single table, where the columns are labeled: error, **C** ,  kernel. Each row will list the error rate (on a scale of 0 to 1) for one trial, the value of **C** for that trial and the kernel for that trial.  
+15\. (0.25 points) What is the result of your statistical test? Is the difference between the best and second best value of kernel statistically significant?
