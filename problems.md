@@ -33,7 +33,7 @@ The main task for this assignment will be building two hyperparameter tuners. Yo
 
 To boost the performance of your code we also included a parallelizer that can run mutliple training jobs or worker tasks on different threads at the same time. You can find the code for that in `parallelizer.py`. Read through the comments of this file so that you understand how the parallelization works. You can initialize a new parallelizer object with a worker function. This function and its signature is already given in `worker.py`.
 
-The test cases rely on the code that is already given in `experiment.py`. The only thing that you will need to change is the amount of MNIST data which we want to use during the training time. If we would use the whole MNIST dataset it takes several hours to train a single Support Vector Machine. Since we want to run mutliple experiments within our hyperparameter tuner, you need to change the value of the NUMBER_OF_MNIST_SAMPLES variable so that a single SVM training experiment including cross validation does not take longer than 2 minutes. In our case this number was set to 500 but feel free to change the number if you want to.
+The test cases rely on the code that is already given in `experiment.py`. The only thing that you will need to change is the amount of MNIST data which we want to use during the training time. If we would use the whole MNIST dataset it takes several hours to train a single Support Vector Machine. Since we want to run mutliple experiments within our hyperparameter tuner, you need to change the value of the NUMBER_OF_MNIST_SAMPLES variable so that a single SVM training experiment including cross validation does not take longer than 2 minutes. In our case this number was set to 2000 but feel free to change the number if you want to.
  
 You should make a conda environment for this homework just like you did for previous homeworks. We have included a `requirements.txt`.
 
@@ -54,16 +54,7 @@ You should make a conda environment for this homework just like you did for prev
 5\. (0.5 points) Now you have to decide how to make a draw from the data for training and testing a model. Think about the goals of training and testing sets - we pick good training sets so our classifier generalizes to unseen data and we pick good testing sets to see whether our classifier generalizes. Explain how you should select training and testing sets. (Entirely randomly? Train on digits 0-4, test on 5-9? Train on one group of hand-writers, test on another?). Justify your method for selecting the training and testing sets in terms of these goals. 
 
 #### Finding the best hyperparameters (2.5 points)
-To answer the following questions you should use your hyperparameter tuner. We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant we will be running 20 fold cross validation. You can simply call the run function within `experiment.py` with the right parameters to get all the results that you nedd. We consider one such cross validation experiment as a trial.
-
-What's a trial? In one trial you...
-
-- Select testing and training data using your approach from an earlier question.
-- Select the condition: your kernel and value for C.
-- Train the SVM on the training data until it converges.
-- Test the trained SVM on the testing data.
-
-###### Note: You will have to do 180 trials (9 conditions, 20 trials per condition). If each trial takes 2 minutes, you will need to dedicate 6 hours to these experiments. Therefore, it is crucial that you are using the parallelizer in your implementations.
+To answer the following questions you should use your GridSearch hyperparameter tuner. We want to find the best kernel and slack cost, **C**, for handwritten digit recognition on MNIST using a support vector machine. To do this, we're going to try different kernels from the set {Linear, Polynomial, Radial Basis Function}. Use the default value of 3 for the degree of the polynomial. We will combine each kernel with a variety of **C** values drawn from the set { 0.1, 1, 10 }. This results in 9 variants of the SVM. For each variant we will be running 20 fold cross validation which was specified in the `worker.py`. You can simply call the run function within `experiment.py` with the right parameters to get all the results that you nedd.
 
 9\. (0.5 point) Create a table with 3 rows (1 kernel per row) and 3 columns (the 3 slack settings). Rows and columns should be clearly labeled. For each condition (combination of slack and kernel), show the following 3 values: the mean accuracy **a** of the trials, the standard deviation of the accuracy **std** and the number of trials/experiments **n**, written in the format: **mean(a),std(a),n**. 
 
@@ -71,9 +62,9 @@ What's a trial? In one trial you...
 
 11\. (0.25 points) What statistical test should you use to do comparisons between the values of **C** plotted in the previous question? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. _Note: Your boxplots will show you whether a distribution is skewed (and thus, not normal), but will not show you what the shape of each distribution. There are distributions that are not skewed, but are still not bell curves (normal distributions). It would be a good idea to look at the histograms of your distributions to decide which statistical test you should use._
 
-12\. (0.25 points) Give the p value reported by your test. Say what that p value means. 
+12\. (0.25 points) Give the p value reported by your test. Say what that p value means with respect to the 5% rule. 
 
-13\. (0.5 points) Make a boxplot graph that plots accuracy (vertical) as a function of kernel choice. There should be 3 boxplots in the graph, one per kernel. Use results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
+13\. (0.5 points) Make a boxplot graph that plots accuracy (vertical) as a function of __kernel__ choice. There should be 3 boxplots in the graph, one per kernel. Use results across all values for C. Don't forget to indicate **n** on your plot, where **n** is the number trials per boxplot. Don't forget to label your dimensions. 
 
 14\. (0.25 points) What statistical test should you use to determine whether the difference between the best and second best kernel is statistically significant? Explain the reason for your choice. Consider how you selected testing and training sets and the skew of the data in the boxplots in your answer. 
 
